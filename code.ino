@@ -1,20 +1,24 @@
 // created by Elliott Roach
-// created on feb 2026
-// this blinks a light on and off from pin 5
+// created on mar 2026
+// this turns a servo 0 to 90
 
-int pin5 = 5;
+#include <Servo.h>
+
+Servo servoPinTwo;
 
 
 void setup() {
-    // initializing pins
-    pinMode(pin5, OUTPUT);
+    // initializing pins/setup
+    servoPinTwo.attach(2);
+    servoPinTwo.write(0);
+  delay(1000);
 }
 
 
 void loop() {
     // this blinks the light in infinite loop
-    digitalWrite(pin5, HIGH);
+    servoPinTwo.write(90);
     delay(1000);
-    digitalWrite(pin5, LOW);
+    servoPinTwo.write(0);
     delay(1000);
 }
