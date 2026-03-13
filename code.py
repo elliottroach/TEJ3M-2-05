@@ -7,17 +7,16 @@ this turns a servo 0 to 90
 import board
 import digitalio
 import time
+from servo import Servo
 from adafruit_motor import servo
 
 # setup
-data_wire = pwmio.PWMOut(board.gp2, frequency=50)
+my_servo = Servo(pin_id=2)
 
-my_servo = servo.ContinuousServo(data_wire)
-my_servo.angle = 0
+my_servo.write = 0
 
 while True:
-    my_servo.angle = 0
+    my_servo.write = 0
     time.sleep(1)
-    my_servo.angle = 90
+    my_servo.write = 90
     time.sleep(1)
-    
