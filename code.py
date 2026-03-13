@@ -1,22 +1,24 @@
 """
 Made by Elliott Roach
 Made on 2026 Mar
-this turns a servo 0 to 90
+this turns a servo 0 to 180
 """
 
 import board
 import digitalio
 import time
-from servo import Servo
-from adafruit_motor import servo
+import pwmio
+from adafruit_motor import Servo
 
 # setup
-my_servo = Servo(pin_id=2)
+pwm = pwmio.PWMOut(board.GP2, duty_cycle=2 ** 15, frequency=50)
+my_servo = Servo(pwm)
+my_servo.angle = 0
 
-my_servo.write = 0
-
+# loop that turns the servo
 while True:
-    my_servo.write = 0
+    my_servo.angle = 0
     time.sleep(1)
-    my_servo.write = 90
+    my_servo.angle = 180
     time.sleep(1)
+    
