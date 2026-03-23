@@ -5,7 +5,6 @@ this turns a servo 0 to 180
 """
 
 import board
-import digitalio
 import time
 import pwmio
 from adafruit_motor import servo
