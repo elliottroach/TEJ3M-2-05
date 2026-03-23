@@ -8,12 +8,12 @@ import board
 import digitalio
 import time
 import pwmio
-from adafruit_motor import Servo
+from adafruit_motor import servo
 
 # setup
 pwm = pwmio.PWMOut(board.GP2, duty_cycle=2 ** 15, frequency=50)
 
-my_servo = Servo(pwm)
+my_servo = servo.Servo(pwm)
 my_servo.angle = 0
 
 while True:
